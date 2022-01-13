@@ -16,7 +16,8 @@ src\
    ` `--service  : controllers doing business logic  
    ` `--utils  : utilities   
    ` `find_trucks_cli.py  
-tests
+tests  : unit tests  
+resources  : CSV file having Food Trucks data
 
 #### **Data Model**
 

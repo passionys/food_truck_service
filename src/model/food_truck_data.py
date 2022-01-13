@@ -13,12 +13,6 @@ class FoodTruckData:
                 for row in reader:
                     self.trucks.append(row)
         except IOError as e:
+            print(f"File {filepath} not found!")
             self.logger.debug(f'Cannot open the file {filepath} : {e}')
 
-    @property
-    def trucks(self):
-        return self._trucks
-
-    @trucks.setter
-    def trucks(self, value):
-        self._trucks = value
