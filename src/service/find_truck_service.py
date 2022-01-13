@@ -7,6 +7,7 @@ class FindTruckService:
     FindTruckService:
     1. load CSV data of trucks
     2. find the closes trucks from (latitude, logitude) given by user
+       Max Heap approach is used.
 
     """
 
@@ -26,6 +27,7 @@ class FindTruckService:
         trucks = self.import_csv(filepath)
         self.logger.info(f"Finding {self.num_trucks} closest trucks from ({self.latitude}, {self.longitude})")
         closest = self.get_closest(trucks)
+        self.logger.info(f"{self.num_trucks} closest trucks: {closest}")
         return closest
 
     def get_closest(self, trucks):
