@@ -35,7 +35,7 @@ Space complexity : O(N)
 
 ###### **Logging**
 python builtin logging module was used with RotatingFileHandler which will rotate log files based the size from configuration
-LoggerFactory class was implemented in case that application was extended with other features.
+LoggerFactory class was implemented in case that application was extended with other features using multithreading.
 
 
 
