@@ -19,17 +19,21 @@ class FindTruckService:
 
     def import_csv(self, filepath):
         # check if the file exist, and load CSV
-        self.truck_data.load_CSV(filepath)
-        return self.truck_data.trucks()
+        self.truck_data.load_csv(filepath)
+        return self.truck_data.trucks
 
     def find_trucks(self, filepath):
         trucks = self.import_csv(filepath)
-        self.logger.info(f"{trucks[0]}, {trucks[1]}")
+        self.logger.info(f"Finding {self.num_trucks} closest trucks from ({self.latitude}, {self.longitude})")
         closest = self.get_closest(trucks)
         return closest
 
     def get_closest(self, trucks):
         closest = []
-#        for truck in trucks:
+        for idx, truck in enumerate(trucks):
+            distance = (float(truck["Latitude"]) - float(self.latitude))**2 + (float(truck["Longitude"]) - float(self.longitude))**2
+            heapq.heappush(closest, (-distance, idx))
+            if len(closest) > self.num_trucks :
+                heapq.heappop(closest)
 
-        return trucks
+        return [trucks[idx] for _, idx in closest]

@@ -1,4 +1,4 @@
-from ConfigParser import SafeConfigParser
+from configparser import ConfigParser
 import logging
 from logging.handlers import RotatingFileHandler
 
@@ -10,7 +10,7 @@ class LoggerFactory:
 
     def __init__(self, log_properties_file_name):
 
-        config_parser = SafeConfigParser()
+        config_parser = ConfigParser()
         config_parser.read(log_properties_file_name)
         LoggerFactory.log_config_properties = dict(config_parser.items('log_config'))
 
@@ -27,8 +27,8 @@ class LoggerFactory:
             if not len(my_logger.handlers):
                 file = '{0}/{1}'.format(log_config_properties['log_path'], log_config_properties['log_file'])
                 handler = RotatingFileHandler(file,
-                                           maxBytes=int(log_config_properties['log_max_bytes']),
-                                           backupCount=int(log_config_properties['log_count']))
+                                              maxBytes=int(log_config_properties['log_max_bytes']),
+                                              backupCount=int(log_config_properties['log_count']))
 
                 formatter = logging.Formatter(
                     '%(asctime)s %(levelname)s [%(process)s] [%(filename)s:%(lineno)d] - %(message)s')
