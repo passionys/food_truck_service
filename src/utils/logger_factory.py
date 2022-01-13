@@ -4,7 +4,7 @@ from logging.handlers import RotatingFileHandler
 
 
 class LoggerFactory:
-    """Logger Factory which the service should only need to provide class name"""
+    """Logger Factory which the service only need to provide class name"""
     loggers = {}
     log_config_properties = None
 
@@ -41,6 +41,6 @@ class LoggerFactory:
                     my_logger.setLevel(logging.WARN)
                 else:
                     my_logger.setLevel(logging.INFO)
-            # add logger into static diction
+            # add logger into static dictionary
             LoggerFactory.loggers[log_file_name] = my_logger
             return my_logger
