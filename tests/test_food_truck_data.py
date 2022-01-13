@@ -1,7 +1,6 @@
 import unittest
-from textwrap import dedent
-from unittest.mock import mock_open, patch
 
+from unittest.mock import mock_open, patch
 from model.food_truck_data import FoodTruckData
 
 
@@ -14,10 +13,8 @@ class FoodTruckDataTestCase(unittest.TestCase):
     @patch("builtins.open", mock_open(read_data=DATA))
     def test_load_CSV(self):
         food_truck_data = FoodTruckData(None)
-        trucks = food_truck_data.load_CSV("filepath")
-        for truck in trucks:
-            print(truck)
-        self.assertEqual(len(trucks), 3)
+        food_truck_data.load_csv("filepath")
+        self.assertEqual(len(food_truck_data.trucks), 3)
 
 
 if __name__ == '__main__':
