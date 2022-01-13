@@ -13,8 +13,8 @@ class FoodTruckDataTestCase(unittest.TestCase):
     @patch("builtins.open", mock_open(read_data=DATA))
     def test_load_CSV(self):
         food_truck_data = FoodTruckData(None)
-        food_truck_data.load_csv("filepath")
-        self.assertEqual(len(food_truck_data.trucks), 3)
+        trucks = food_truck_data.load_csv("filepath")
+        self.assertEqual(len(trucks), 3)
 
 
 if __name__ == '__main__':

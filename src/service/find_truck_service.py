@@ -5,8 +5,7 @@ import heapq
 class FindTruckService:
     """
     FindTruckService:
-    1. load CSV data of trucks
-    2. find the closes trucks from (latitude, logitude) given by user
+    find the closes trucks from (latitude, logitude) given by user
        Max Heap approach is used.
 
     """
@@ -18,13 +17,8 @@ class FindTruckService:
         self.logger = logger
         self.truck_data = FoodTruckData(logger)
 
-    def import_csv(self, filepath):
-        # check if the file exist, and load CSV
-        self.truck_data.load_csv(filepath)
-        return self.truck_data.trucks
-
     def find_trucks(self, filepath):
-        trucks = self.import_csv(filepath)
+        trucks = self.truck_data.load_csv(filepath)
         self.logger.info(f"Finding {self.num_trucks} closest trucks from ({self.latitude}, {self.longitude})")
         closest = self.get_closest(trucks)
         self.logger.info(f"{self.num_trucks} closest trucks: {closest}")
