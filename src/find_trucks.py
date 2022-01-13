@@ -8,7 +8,7 @@ from pprint import pprint
 CONFIG_FILE = "config/food_trucks.conf"
 
 
-def find_food_trucks(args):
+def find_food_trucks(args: object):
     latitude = args.latitude
     longitude = args.longitude
 
@@ -19,12 +19,12 @@ def find_food_trucks(args):
     logger = LoggerFactory(CONFIG_FILE).get_logger()
     food_truck_service = FindTruckService(float(latitude), float(longitude),
                                           int(food_truck_configs["number_closest_trucks"]), logger)
-    closest_trucks = food_truck_service.find_trucks(food_truck_configs["csv_file"])
+    result = food_truck_service.find_trucks(food_truck_configs["csv_file"])
 
-    return closest_trucks
+    return result
 
 
-def main():
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='find_food_trucks',
                                      description="Find Food Trucks")
     parser.add_argument('-latitude',
@@ -36,7 +36,3 @@ def main():
 
     closest_trucks = find_food_trucks(args)
     pprint(closest_trucks)
-
-
-if __name__ == "__main__":
-    main()
