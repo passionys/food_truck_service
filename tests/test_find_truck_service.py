@@ -4,13 +4,14 @@ from service.find_truck_service import FindTruckService
 
 class FindTruckServiceTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self.trucks = [{'locationid': 1, 'Latitude': '1.0', 'Longitude': '3.0'},
+        self.trucks = [{'locationid': 7, 'Latitude': '7.0', 'Longitude': '3'},
+                       {'locationid': 6, 'Latitude': '6.0', 'Longitude': '3'},
+                       {'locationid': 1, 'Latitude': '1.0', 'Longitude': '3.0'},
                        {'locationid': 2, 'Latitude': '2.0', 'Longitude': '3'},
                        {'locationid': 3, 'Latitude': '3.0', 'Longitude': '3'},
                        {'locationid': 4, 'Latitude': '4.0', 'Longitude': '3'},
                        {'locationid': 5, 'Latitude': '5.0', 'Longitude': '3'},
-                       {'locationid': 6, 'Latitude': '6.0', 'Longitude': '3'},
-                       {'locationid': 7, 'Latitude': '7.0', 'Longitude': '3'}]
+                       ]
 
     def test_get_closest(self):
         find_truck_service = FindTruckService(0, 0, 3, None)
