@@ -15,7 +15,6 @@ class FoodTruckData:
         except IOError as e:
             self.logger.debug(f'Cannot open the file {filepath} : {e}')
 
-
     @property
     def trucks(self):
         return self._trucks
