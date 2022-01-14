@@ -10,7 +10,9 @@ CONFIG_FILE = "config/food_trucks.conf"
 
 
 def find_food_trucks(latitude, longitude, food_truck_configs, logger):
-    food_truck_service = FindTruckController(FoodTruckModel(food_truck_configs["csv_file"], logger), CliView(logger), logger)
+    food_truck_service = FindTruckController(FoodTruckModel(food_truck_configs["csv_file"], logger),
+                                             CliView(logger),
+                                             logger)
     food_truck_service.find_trucks(float(latitude), float(longitude), int(food_truck_configs["number_closest_trucks"]))
 
 
