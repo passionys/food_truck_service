@@ -23,7 +23,7 @@ From command line,
 
 #### **Program structure**
 MVC pattern  :   Model, View, and Controller were separated, and it would be easy to change View or Model in the future without touching controller.  
-For example, you can replace CliView with UIView.  
+For example, you can replace CliView with TKView.  Model also can be easily replaced with DBModel.
 Controller <--> Model   
 ` `|-----> View
 
