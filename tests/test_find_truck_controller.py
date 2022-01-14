@@ -1,8 +1,8 @@
 import unittest
-from service.find_truck_service import FindTruckService
+from controller.find_truck_controller import FindTruckController
 
 
-class FindTruckServiceTestCase(unittest.TestCase):
+class FindTruckControllerTestCase(unittest.TestCase):
     def setUp(self) -> None:
         self.trucks = [{'locationid': 7, 'Latitude': '7.0', 'Longitude': '3'},
                        {'locationid': 6, 'Latitude': '6.0', 'Longitude': '3'},
@@ -14,7 +14,7 @@ class FindTruckServiceTestCase(unittest.TestCase):
                        ]
 
     def test_get_closest(self):
-        find_truck_service = FindTruckService(None, None, None)
+        find_truck_service = FindTruckController(None, None, None)
         closest = find_truck_service.get_closest(self.trucks, 0, 0, 3)
         locations = [truck.get('locationid') for truck in closest]
         self.assertTrue(1 in locations and 2 in locations and 3 in locations)

@@ -2,7 +2,7 @@ from model.food_truck_model import FoodTruckModel
 import heapq
 
 
-class FindTruckService:
+class FindTruckController:
     """
     FindTruckService:
     find the K closest trucks from (latitude, longitude) given by user

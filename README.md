@@ -22,20 +22,16 @@ From command line,
 ...................
 
 #### **Program structure**
+MVC pattern  :   Model, View, and Controller were separated, and it would be easy to change View or Model in the future without touching controller.  
+For example, you can replace CliView with UIView.  
+Controller <--> Model   
+` `|-----> View
 
-src\
-   ` `--config  : configuration files for logging and other constants  
-   ` `--model  :  data models  
-   ` `--service  : controllers doing business logic  
-   ` `--utils  : utilities   
-   ` `find_trucks_cli.py  
-tests  : unit tests  
-resources  : CSV file having Food Trucks data
 
 #### **Data Model**
 
-List was used to contain each truck's data, and dictionary was chosen to fast access O(1) to each field.
-Truck class was one option but since there are many unused fields from CSV file, basic dictionary was chosen for simplicity.
+List was used to contain each truck's data, and dictionary was chosen to access to each field. It will take O(1) time.
+Implementing FoodTruck class was one option but since there are many unused fields from CSV file, basic dictionary was better for simplicity and extensibility.
 
 #### **Algorithm used to select the closest trucks**
 
@@ -56,6 +52,5 @@ LoggerFactory class was implemented using Singleton pattern to be threads safe.
 
 #### **Todo items**
 1. Data validation for CSV file
-2. Displaying results more efficiently instead showing all the fields.  
-   We can ask users to add the field names in the config file to show.  
-3. How to deploy the application 
+2. View can be enhanced to UI or WebUI
+3. Deployment process

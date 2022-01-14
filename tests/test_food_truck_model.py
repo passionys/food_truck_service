@@ -1,6 +1,7 @@
 import unittest
 
 from unittest.mock import mock_open, patch
+
 from model.food_truck_model import FoodTruckModel
 
 
@@ -14,6 +15,7 @@ class FoodTruckDataTestCase(unittest.TestCase):
     def test_load_CSV(self):
         food_truck_model = FoodTruckModel("filepath", None)
         self.assertEqual(len(food_truck_model.trucks), 3)
+
 
 if __name__ == '__main__':
     unittest.main()
