@@ -5,8 +5,8 @@ import heapq
 class FindTruckService:
     """
     FindTruckService:
-    find the closes trucks from (latitude, logitude) given by user
-       Max Heap approach is used.
+    find the K closest trucks from (latitude, longitude) given by user
+    Max Heap approach was used.
 
     """
 
