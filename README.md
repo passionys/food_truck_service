@@ -24,7 +24,7 @@ From command line,
 #### **Program structure**
 
 src\
-   ` `--config  : configuration files for logging and data file  
+   ` `--config  : configuration files for logging and other constants  
    ` `--model  :  data models  
    ` `--service  : controllers doing business logic  
    ` `--utils  : utilities   
@@ -56,5 +56,5 @@ LoggerFactory class was implemented using Singleton to be threads safe.
 
 #### **Todo items**
 1. Displaying result more efficiently.  
-   We can ask users to set up the field names in the config file to display in the result.  
+   We can ask users to set up the field names to show as results in the config file.  
 2. How to deploy the application 

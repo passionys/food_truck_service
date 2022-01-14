@@ -18,9 +18,7 @@ class LoggerFactory:
         log_config_properties = LoggerFactory.log_config_properties
         log_file_name = log_config_properties['log_file']
         my_logger = LoggerFactory.loggers.get(log_file_name)
-        if my_logger:
-            return my_logger
-        else:
+        if not my_logger:
             my_logger = logging.getLogger(log_file_name)
             log_level = log_config_properties['log_level']
             file = '{0}/{1}'.format(log_config_properties['log_path'], log_config_properties['log_file'])
@@ -40,4 +38,4 @@ class LoggerFactory:
                 my_logger.setLevel(logging.INFO)
             # add logger into static dictionary
             LoggerFactory.loggers[log_file_name] = my_logger
-            return my_logger
+        return my_logger
