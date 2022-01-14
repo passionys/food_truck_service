@@ -18,16 +18,17 @@ class FindTruckController:
 
     def find_trucks(self, latitude, longitude, num_trucks):
         self.logger.info(f"Finding {num_trucks} closest trucks from ({latitude}, {longitude})")
-        closest = self.get_closest_by_heap(self.model.trucks, latitude, longitude, num_trucks)
+        closest = FindTruckController.get_closest_by_heap(self.model.trucks, latitude, longitude, num_trucks)
         self.logger.info(f"{num_trucks} closest trucks: {closest}")
         self.view.show_result(closest)
 
-    def get_closest_by_heap(self, trucks, latitude, longitude, num_trucks):
+    @staticmethod
+    def get_closest_by_heap(trucks, latitude, longitude, num_trucks):
         closest = []
         for idx, truck in enumerate(trucks):
-            distance = (float(truck["Latitude"]) - latitude)**2 + (float(truck["Longitude"]) - longitude)**2
+            distance = (float(truck["Latitude"]) - latitude) ** 2 + (float(truck["Longitude"]) - longitude) ** 2
             heapq.heappush(closest, (-distance, idx))
-            if len(closest) > num_trucks :
+            if len(closest) > num_trucks:
                 heapq.heappop(closest)
 
         return [trucks[idx] for _, idx in closest]
