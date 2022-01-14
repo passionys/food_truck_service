@@ -47,8 +47,14 @@ and push the new one. In this way, it will maintain top K closest trucks in the 
 Time complexity : O(N log K)  N is the number of trucks and K could be 5 or any number.  
 Space complexity : O(N)
 
+Other approach : You can sort by distance and return the first K trucks. it will take O(NlogN) time.  
+Considering N could be large compared to K, I chose Max Heap approach.
+
 #### **Logging**
 python builtin logging module was used with RotatingFileHandler which will rotate log files based the max size.
 LoggerFactory class was implemented using Singleton to be threads safe.
 
-
+#### **Todo items**
+1. Displaying result more efficiently.  
+   We can ask users to set up the field names in the config file to display in the result.  
+2. How to deploy the application 

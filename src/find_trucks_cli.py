@@ -27,11 +27,8 @@ def find_food_trucks(args: object) -> list:
 def main():
     parser = argparse.ArgumentParser(prog='find_food_trucks',
                                      description="Find Food Trucks")
-    parser.add_argument('-latitude',
-                        required=True)
-    parser.add_argument('-longitude',
-                        required=True)
-
+    parser.add_argument('-latitude', required=True)
+    parser.add_argument('-longitude', required=True)
     args = parser.parse_args()
 
     closest_trucks = find_food_trucks(args)

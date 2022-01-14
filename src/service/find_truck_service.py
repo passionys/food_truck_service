@@ -27,7 +27,7 @@ class FindTruckService:
     def get_closest(self, trucks):
         closest = []
         for idx, truck in enumerate(trucks):
-            distance = (float(truck["Latitude"]) - float(self.latitude))**2 + (float(truck["Longitude"]) - float(self.longitude))**2
+            distance = (float(truck["Latitude"]) - self.latitude)**2 + (float(truck["Longitude"]) - self.longitude)**2
             heapq.heappush(closest, (-distance, idx))
             if len(closest) > self.num_trucks :
                 heapq.heappop(closest)
