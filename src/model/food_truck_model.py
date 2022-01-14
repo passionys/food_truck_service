@@ -1,10 +1,11 @@
 import csv
 
 
-class FoodTruckData:
-    def __init__(self, logger):
+class FoodTruckModel:
+    def __init__(self, filepath, logger):
         self.trucks = []
         self.logger = logger
+        self.load_csv(filepath)
 
     def load_csv(self, filepath):
         try:

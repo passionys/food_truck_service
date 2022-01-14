@@ -1,4 +1,4 @@
-from model.food_truck_data import FoodTruckData
+from model.food_truck_model import FoodTruckModel
 import heapq
 
 
@@ -10,26 +10,23 @@ class FindTruckService:
 
     """
 
-    def __init__(self, latitude, longitude, num_trucks, logger):
-        self.latitude = latitude
-        self.longitude = longitude
-        self.num_trucks = num_trucks
+    def __init__(self, model, view, logger):
+        self.model = model
+        self.view = view
         self.logger = logger
-        self.truck_data = FoodTruckData(logger)
 
-    def find_trucks(self, filepath):
-        trucks = self.truck_data.load_csv(filepath)
-        self.logger.info(f"Finding {self.num_trucks} closest trucks from ({self.latitude}, {self.longitude})")
-        closest = self.get_closest(trucks)
-        self.logger.info(f"{self.num_trucks} closest trucks: {closest}")
-        return closest
+    def find_trucks(self, latitude, longitude, num_trucks):
+        self.logger.info(f"Finding {num_trucks} closest trucks from ({latitude}, {longitude})")
+        closest = self.get_closest(self.model.trucks, latitude, longitude, num_trucks)
+        self.logger.info(f"{num_trucks} closest trucks: {closest}")
+        self.view.show_result(closest)
 
-    def get_closest(self, trucks):
+    def get_closest(self, trucks, latitude, longitude, num_trucks):
         closest = []
         for idx, truck in enumerate(trucks):
-            distance = (float(truck["Latitude"]) - self.latitude)**2 + (float(truck["Longitude"]) - self.longitude)**2
+            distance = (float(truck["Latitude"]) - latitude)**2 + (float(truck["Longitude"]) - longitude)**2
             heapq.heappush(closest, (-distance, idx))
-            if len(closest) > self.num_trucks :
+            if len(closest) > num_trucks :
                 heapq.heappop(closest)
 
         return [trucks[idx] for _, idx in closest]

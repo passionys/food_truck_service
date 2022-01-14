@@ -14,8 +14,8 @@ class FindTruckServiceTestCase(unittest.TestCase):
                        ]
 
     def test_get_closest(self):
-        find_truck_service = FindTruckService(0, 0, 3, None)
-        closest = find_truck_service.get_closest(self.trucks)
+        find_truck_service = FindTruckService(None, None, None)
+        closest = find_truck_service.get_closest(self.trucks, 0, 0, 3)
         locations = [truck.get('locationid') for truck in closest]
         self.assertTrue(1 in locations and 2 in locations and 3 in locations)
 
