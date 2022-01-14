@@ -17,5 +17,3 @@ class FoodTruckModel:
             print(f"File {filepath} not found!")
             self.logger.debug(f'Cannot open the file {filepath} : {e}')
 
-        return self.trucks
-
