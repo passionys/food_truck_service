@@ -44,7 +44,8 @@ Time complexity : O(N log K)  N is the number of trucks and K could be 5 or any 
 Space complexity : O(N)
 
 Other approach : You can sort by distance and return the first K trucks. it will take O(NlogN) time.  
-Considering N could be large compared to K, I chose Max Heap approach.
+
+if the given data set is not big enough ( N > 10000), these two approaches might not have much difference.
 
 #### **Logging**
 python builtin logging module was used with RotatingFileHandler which will rotate log files based on the max size.
@@ -52,5 +53,6 @@ LoggerFactory class was implemented using Singleton pattern to be threads safe.
 
 #### **Todo items**
 1. Data validation for CSV file
-2. View can be enhanced to UI or WebUI
-3. Deployment process
+2. Integration testing (end-to-end testing)
+3. View can be enhanced to UI or WebUI
+4. Deployment process (PyInstaller? maven to create zip file having a folder structure for Jenkins CICD pipeline?)
