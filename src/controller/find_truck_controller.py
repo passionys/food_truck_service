@@ -1,6 +1,8 @@
 from model.food_truck_model import FoodTruckModel
 import heapq
 
+from view.view import View
+
 
 class FindTruckController:
     """
@@ -10,7 +12,7 @@ class FindTruckController:
 
     """
 
-    def __init__(self, model, view, logger):
+    def __init__(self, model, view: View, logger):
         self.model = model
         self.view = view
         self.logger = logger
