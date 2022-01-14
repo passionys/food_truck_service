@@ -51,10 +51,11 @@ Other approach : You can sort by distance and return the first K trucks. it will
 Considering N could be large compared to K, I chose Max Heap approach.
 
 #### **Logging**
-python builtin logging module was used with RotatingFileHandler which will rotate log files based the max size.
-LoggerFactory class was implemented using Singleton to be threads safe.
+python builtin logging module was used with RotatingFileHandler which will rotate log files based on the max size.
+LoggerFactory class was implemented using Singleton pattern to be threads safe.
 
 #### **Todo items**
-1. Displaying result more efficiently.  
-   We can ask users to set up the field names to show as results in the config file.  
-2. How to deploy the application 
+1. Data validation for CSV file
+2. Displaying results more efficiently instead showing all the fields.  
+   We can ask users to add the field names in the config file to show.  
+3. How to deploy the application 
