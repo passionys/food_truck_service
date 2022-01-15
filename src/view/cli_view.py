@@ -3,7 +3,9 @@ from view.view import View
 
 
 class CliView(View):
-
+    """
+    CliView : simple command line interface view
+    """
     def __init__(self, logger):
         self.logger = logger
 

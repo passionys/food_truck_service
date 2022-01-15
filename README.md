@@ -21,16 +21,16 @@ From command line,
   'Location': '(0, 0)',   
 ...................
 
-#### **Program structure**
+#### **Application Architecture**
 MVC pattern  :   Model, View, and Controller were separated, and it would be easy to change View or Model in the future without touching controller.  
-For example, you can replace CliView with TKView.  Model also can be easily replaced with DBModel.
+For example, you can replace CliView with TKView.  Model also can be easily replaced with DBModel.  
 Controller <--> Model   
 ` `|-----> View
 
 
 #### **Data Model**
 
-List was used to contain each truck's data, and dictionary was chosen to access to each field. It will take O(1) time.
+List was used to contain each truck's data, and dictionary was chosen to access fast to each field. It will take O(1) time.
 Implementing FoodTruck class was one option but since there are many unused fields from CSV file, basic dictionary was better for simplicity and extensibility.
 
 #### **Algorithm used to select the closest trucks**
@@ -54,5 +54,6 @@ LoggerFactory class was implemented using Singleton pattern to be threads safe.
 #### **Todo items**
 1. Data validation for CSV file
 2. Integration testing (end-to-end testing)
-3. View can be enhanced to UI or WebUI
+3. View can be enhanced to UI or WebUI and showing only selected fields
 4. Deployment process (PyInstaller? maven to create zip file having a folder structure for Jenkins CICD pipeline?)
+5. providing choice of algorithms to select food trucks through strategy pattern. 
