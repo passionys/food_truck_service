@@ -6,19 +6,17 @@ It will have a location (Lattitude, Longitue) as parameters and return K(default
 #### **How to run it**
 
 From command line,  
- % python find_trucks_cli.py -latitude 100 -longitude -30  
-[{'Address': '2201 VALLEJO ST',
-  'Applicant': 'D & T Catering',
-  'Approved': '07/11/2018 12:00:00 AM',
+(venv) (base) youngshinkim@youngshins-air src % python find_trucks_cli.py -latitude 37.782143532929 -longitude -122.430449785949
+[{'Address': '368 ELM ST',
+  'Applicant': 'Anas Goodies Catering',
+  'Approved': '07/09/2018 12:00:00 AM',
   'ExpirationDate': '07/15/2019 12:00:00 AM',
   'FacilityType': 'Truck',
-  'FoodItems': 'Cold Truck: Pre-packaged sandwiches: Chicken Bake: Canned '
-               'Soup: Chili Dog: Corn Dog: Cup of Noodles: Egg Muffins: '
-               'Hamburgers: Cheeseburgers: Hot Dog: Hot sandwiches: '
-               'quesadillas: Beverages: Flan: Fruits: Yogurt: Candy: Cookies: '
-               'Chips: Donuts: Snacks',
-  'Latitude': '0',
-  'Location': '(0, 0)',   
+  'FoodItems': 'Cold Truck: Sandwiches: Noodles:  Pre-packaged Snacks: Candy: '
+               'Desserts Various Beverages',
+  'Latitude': '37.7813800275549',
+  'Location': '(37.7813800275549, -122.423143845506)',
+  'LocationDescription': 'ELM ST: FRANKLIN ST to GOUGH ST (300 - 399)',
 ...................
 
 #### **Application Architecture**
@@ -55,5 +53,5 @@ LoggerFactory class was implemented using Singleton pattern to be threads safe.
 1. Data validation for CSV file
 2. Integration testing (end-to-end testing)
 3. View can be enhanced to UI or WebUI and showing only selected fields
-4. Deployment process (PyInstaller? maven to create zip file having a folder structure for Jenkins CICD pipeline?)
+4. Deployment process (PyInstaller or container like Docker)
 5. providing choice of algorithms to select food trucks through strategy pattern. 
