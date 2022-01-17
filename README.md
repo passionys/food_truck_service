@@ -28,12 +28,12 @@ Controller <--> Model
 
 #### **Data Model**
 
-List was used to contain each truck's data, and dictionary was chosen to access fast to each field. It will take O(1) time.
-Implementing FoodTruck class was one option but since there are many unused fields from CSV file, basic dictionary was better for simplicity and extensibility.
+List was used to contain each truck's data, and dictionary was chosen fast access to each field. It will take O(1) time.
+Implementing FoodTruck class was one other option but since there are many unused fields from CSV file, the basic dictionary is better for simplicity.
 
 #### **Algorithm used to select the closest trucks**
 
-Each truck's distance to the user location is pushed to Max heap
+Each truck's distance to the user location is pushed to min heap with negative value. 
 Once the size of the heap grows more than the number specified from configuration file, 
 if the new truck is closer than the top element of the heap, pop an element from the heap 
 and push the new one. In this way, it will maintain top K closest trucks in the heap.
