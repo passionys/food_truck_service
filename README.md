@@ -47,11 +47,12 @@ if the given data set is not big enough ( N > 10000), these two approaches might
 
 #### **Logging**
 python builtin logging module was used with RotatingFileHandler which will rotate log files based on the max size.
-LoggerFactory class was implemented using Singleton pattern to be threads safe.
+log configuration came from config file. LoggerFactory implemented to provide one place to set up loggers. 
 
 #### **Todo items**
 1. Data validation for CSV file
-2. Integration testing (end-to-end testing)
-3. View can be enhanced to UI or WebUI and showing only selected fields
+2. Integration testing (end-to-end testing) for ensuring the new code change did not break the existing functionalities.
+3. View can be enhanced to UI or WebUI and showing only selected fields which are useful to users
 4. Deployment process (PyInstaller or container like Docker)
 5. providing choice of algorithms to select food trucks through strategy pattern. 
+6. Assuming the app will be deployed to PROD, I will use Logstash - Elasticsearch - Kibana for searching logs
