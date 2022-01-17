@@ -4,7 +4,9 @@ from logging.handlers import RotatingFileHandler
 
 
 class LoggerFactory:
-    """Logger Factory keeping one logger per each log file"""
+    """
+    Logger Factory keeping one logger per each log file
+    """
     log_config_properties = None
 
     def __init__(self, log_properties_file_name):

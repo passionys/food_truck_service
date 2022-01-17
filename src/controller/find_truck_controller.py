@@ -1,4 +1,3 @@
-from model.food_truck_model import FoodTruckModel
 import heapq
 
 from view.view import View
