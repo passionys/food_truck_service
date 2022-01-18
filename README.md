@@ -29,7 +29,9 @@ Controller <--> Model
 #### **Data Model**
 
 List was used to contain each truck's data, and dictionary was chosen fast access to each field. It will take O(1) time.
-Implementing FoodTruck class was one other option but since there are many unused fields from CSV file, the basic dictionary is better for simplicity.
+
+Todo:
+It would be better putting abstraction between models and the controller. 
 
 #### **Algorithm used to select the closest trucks**
 
