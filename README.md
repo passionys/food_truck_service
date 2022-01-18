@@ -30,8 +30,9 @@ Controller <--> Model
 
 List was used to contain each truck's data, and dictionary was chosen fast access to each field. It will take O(1) time.
 
-Todo:
+Thoughts:
 It would be better putting abstraction between models and the controller. 
+If we need to provide CRUD operations, I will use repository pattern. 
 
 #### **Algorithm used to select the closest trucks**
 
