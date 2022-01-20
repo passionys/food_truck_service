@@ -14,7 +14,6 @@ class FindTruckControllerTestCase(unittest.TestCase):
                        ]
 
     def test_get_closest(self):
-        find_truck_service = FindTruckController(None, None, None)
         closest = FindTruckController.closest_trucks_heap(self.trucks, 0, 0, 3)
         locations = [truck.get('locationid') for truck in closest]
         self.assertTrue(1 in locations and 2 in locations and 3 in locations)
